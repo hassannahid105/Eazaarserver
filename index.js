@@ -3,6 +3,8 @@ const cors = require("cors");
 const { connectToDB } = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
 const carts = require("./Carts/Carts");
+const generateToken = require("./utils/generateToken");
+const users = require("./users/users");
 const app = express();
 const port = 5000 || process.env.PORT;
 // Middle ware
@@ -22,6 +24,8 @@ connectToDB().then(() => console.log("✅ Connected to DB"));
 //  ? product routes api
 app.use("/products", productRoutes);
 app.use("/carts", carts);
+app.use("/generateToken", generateToken);
+app.use("/users", users);
 
 // ? test api
 app.get("/", (req, res) => {
