@@ -5,6 +5,7 @@ const productRoutes = require("./routes/productRoutes");
 const carts = require("./Carts/Carts");
 const generateToken = require("./utils/generateToken");
 const users = require("./users/users");
+const cookieParser = require("cookie-parser");
 const app = express();
 const port = 5000 || process.env.PORT;
 // Middle ware
@@ -14,10 +15,11 @@ app.use(
     // ? TODO: change origin later
     origin: ["*", "http://localhost:5173"], // Allow all origins // Allow only this origin
     // origin: ["*", "https://fantastic-cajeta-384082.netlify.app"],
-    // methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
-    // credentials: true, // If using cookies/auth
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    credentials: true, // If using cookies/auth
   })
 );
+app.use(cookieParser());
 // Connect to DB (only once)
 connectToDB().then(() => console.log("✅ Connected to DB"));
 
