@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router();
 const { client } = require("../config/db");
 const { ObjectId } = require("mongodb");
+const verifyToken = require("../middleware/verifyToken");
+const verifyAdmin = require("../middleware/verifyAdmin");
 
 const productCollection = client.db("eazaar").collection("products");
 
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, verifyAdmin, async (req, res) => {
   try {
     const result = await productCollection.find().toArray();
     res.send(result);
