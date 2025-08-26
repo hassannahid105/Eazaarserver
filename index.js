@@ -28,7 +28,7 @@ app.use("/products", productRoutes);
 app.use("/carts", carts);
 app.use("/generateToken", generateToken);
 app.use("/users", users);
-// app.use("/users", users);
+app.use("/users", users);
 
 // ? test api
 app.get("/admin/:email", (req, res) => {
