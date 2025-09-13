@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", verifyToken, verifyAdmin, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const result = await userCollection.find().toArray();
     res.send(result);

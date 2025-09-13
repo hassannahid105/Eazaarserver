@@ -13,8 +13,12 @@ app.use(express.json());
 app.use(
   cors({
     // ? TODO: change origin later
-    origin: ["*", "http://localhost:5173"], // Allow all origins // Allow only this origin
-    // origin: ["*", "https://fantastic-cajeta-384082.netlify.app"],
+    origin: [
+      "*",
+      "https://my-project-18d49.web.app",
+      "https://my-project-18d49.firebaseapp.com",
+      "http://localhost:5173",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
     credentials: true, // If using cookies/auth
   })
