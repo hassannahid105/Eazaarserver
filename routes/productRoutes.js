@@ -7,7 +7,7 @@ const verifyAdmin = require("../middleware/verifyAdmin");
 
 const productCollection = client.db("eazaar").collection("products");
 
-router.get("/", verifyToken, verifyAdmin, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const result = await productCollection.find().toArray();
     res.send(result);

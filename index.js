@@ -30,7 +30,7 @@ app.use("/generateToken", generateToken);
 app.use("/users", users);
 
 // ? test api
-app.get("/admin/:email", (req, res) => {
+app.get("/", (req, res) => {
   res.send("hello world");
 });
 
@@ -38,5 +38,5 @@ app.listen(port, () => {
   console.log("listen");
 });
 // Export app for Vercel
-// TODO: open vercel
+// TODO: open vercels
 module.exports = app;
